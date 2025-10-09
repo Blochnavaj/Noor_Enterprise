@@ -1,14 +1,16 @@
 import React from 'react'
 import TopBar from '../Layout/TopBar'
+import Navbar from './Navbar'
 
 function Header() {
   return (
-    <div> 
+    <header> 
         {/* TopBar */}
         <TopBar/>
         {/* Navbar */}
+        <Navbar/>
         {/* Cart Drawer */}
-    </div>
+    </header>
   )
 }
 

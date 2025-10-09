@@ -10,7 +10,7 @@ function TopBar() {
 ];
 
   return (
-   <Marquee speed={100} gradient={false} className='bg-red-400'  >
+   <Marquee speed={100} gradient={false} className='bg-red-400 py-2'  >
   {messages.map((msg, i) => (
     <span  className='text-white' key={i} style={{ marginRight: "50px" , }}>
       {msg}
