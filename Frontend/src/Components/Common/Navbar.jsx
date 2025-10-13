@@ -3,9 +3,18 @@ import { NavLink } from "react-router-dom";
 import assets from "../../assets/assets";
 import { Search, User, Heart, ShoppingCart, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import SearchBar from "./SearchBar";
+import CartDrawer from "../Layout/CartDrawer";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  // cart items function 
+   const [drawerOpen, setDrawerOpen] = useState(true);
+
+  const handlerDrawer = () => {
+    setDrawerOpen(!drawerOpen);
+  }
 
   const menuLink = [
     { id: 1, name: "HOME", path: "#home" },
@@ -27,18 +36,22 @@ function Navbar() {
 
            {/* Right Side Icons */}
           <ul className="flex items-center gap-5 absolute top-16 right-9 ">
-            <li className="cursor-pointer hover:text-gray-500 transition">
+            {/* <li className="cursor-pointer hover:text-gray-500 transition">
               <Search size={30} />
-            </li>
+            </li> */}
+            <div className="overflow-hidden">
+
+            <SearchBar/>
+            </div>
             <li className="cursor-pointer relative hover:text-gray-500 transition">
               <Heart size={30} />
               <span className="absolute bg-red-400 text-white rounded-full px-2 -top-2 py-0.5 text-xs -right-2 ">4</span>
             </li>
-            <li className=" relative cursor-pointer hover:text-gray-500 transition">
+            <button onClick={handlerDrawer} className=" relative cursor-pointer hover:text-gray-500 transition">
               <ShoppingCart size={30} />
                             <span className="absolute bg-red-400 text-white rounded-full px-2 -top-2 py-0.5 text-xs -right-2 ">4</span>
 
-            </li>
+            </button>
             <li className="cursor-pointer hover:text-gray-500 transition">
               <User size={30} />
             </li>
@@ -67,7 +80,7 @@ function Navbar() {
            </div>
 
         {/* Mobile: Logo + Hamburger + Cart */}
-        <div className="flex md:hidden justify-between items-center px-6 py-2">
+        <div className="flex md:hidden justify-between items-center px-6 py-2 overflow-hidden">
           <button
             onClick={() => setMenuOpen(true)}
             className="text-black"
@@ -77,11 +90,11 @@ function Navbar() {
           <NavLink to="/">
             <img src={assets.logo} alt="Logo" className="h-16" />
           </NavLink>
-         <div className="relative cursor-pointer">
+         <button onClick={handlerDrawer} className="relative cursor-pointer">
              <ShoppingCart size={28} className="text-black " />
         <span className="absolute bg-red-400 text-white rounded-full px-2 -top-2 py-0.5 text-xs -right-2 ">4</span>
 
-         </div>
+         </button>
         </div>
 
         {/* Mobile Menu Overlay */}
@@ -117,6 +130,8 @@ function Navbar() {
             </motion.div>
           )}
         </AnimatePresence>
+
+        <CartDrawer  drawerOpen={drawerOpen} handlerDrawer={handlerDrawer}/>
       </nav>
     </>
   );
