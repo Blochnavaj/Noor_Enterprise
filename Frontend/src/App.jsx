@@ -1,6 +1,7 @@
  import React from 'react'
   import { Routes , Route } from 'react-router-dom'
 import UserLayout from './Components/Layout/UserLayout'
+import Home from './Pages/Home'
 
  function App() {
    return (
@@ -8,7 +9,7 @@ import UserLayout from './Components/Layout/UserLayout'
       <Routes>
       <Route path='/' element={        <UserLayout/>}>
         {/* user Layout */}
-
+        <Route index element={<Home/>} />
       </Route>
 
          <Route>
