@@ -1,40 +1,52 @@
- import React, { useState } from 'react';
-import { X } from 'lucide-react'; // Or use any icon library you prefer
-import CartContext from '../Cart/CartContext';
+ import React from "react";
+import { X } from "lucide-react";
+import CartContext from "../Cart/CartContext";
 
-function CartDrawer({handlerDrawer,drawerOpen }) {
-
+function CartDrawer({ handlerDrawer, drawerOpen }) {
   return (
     <>
-   
+      {/* Background overlay */}
+      <div
+        className={`fixed inset-0 bg-black bg-opacity-40 z-40 transition-opacity duration-300 ${
+          drawerOpen ? "opacity-100 visible" : "opacity-0 invisible"
+        }`}
+        onClick={handlerDrawer}
+      />
 
-      <div className={`fixed top-0 right-0 w-3/4 sm:w-1/3 md:w-1/4 h-full bg-white shadow-lg transform transition-transform duration-300 flex flex-col z-50 ${drawerOpen ? "translate-x-0" : "translate-x-full"}`}>
-        
-        {/* Close Button */}
-        <div className="flex justify-end p-4">
-          <button onClick={handlerDrawer}>
-            <X size={24} className="text-gray-700 hover:text-red-500" />
+      {/* Drawer */}
+      <div
+        className={`fixed top-0 right-0 h-full w-full sm:w-2/3 md:w-1/2 lg:w-1/3 bg-white shadow-2xl z-50 transform transition-transform duration-300 flex flex-col ${
+          drawerOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        {/* Header */}
+        <div className="flex items-center justify-between p-4 border-b border-gray-200">
+          <h1 className="text-lg font-semibold text-gray-700">Your Cart 🛒</h1>
+          <button
+            onClick={handlerDrawer}
+            className="text-gray-600 hover:text-red-500 transition-colors"
+          >
+            <X size={24} />
           </button>
         </div>
 
-        {/* Cart content */}
-        <div className="flex-grow overflow-y-auto p-4">
-          <h1 className='text-xl font-bold text-gray-500'>Your Cart </h1>
-          {/* Components for cart Context */}
-              <CartContext/>
+        {/* Cart Items */}
+        <div className="flex-grow overflow-y-auto p-4 bg-gray-50">
+          <CartContext />
         </div>
 
-        {/* checkout button fixed at bottom */}
-
-       <div className=" sticky bottom-0 p-4">
-  <button className="bg-black rounded-md px-4 w-full py-2 border text-white hover:bg-slate-400 hover:text-black">
-    CheckOut
-  </button>
-  <p className="mt-2 text-center text-sm tracking-tighter">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-</div>
+        {/* Checkout Section */}
+        <div className="border-t border-gray-200 bg-white p-4">
+          <button className="bg-black w-full py-3 text-white rounded-lg font-medium hover:bg-gray-800 transition-all">
+            Proceed to Checkout
+          </button>
+          <p className="text-xs text-gray-500 mt-2 text-center">
+            Secure payment • Fast delivery • Easy returns
+          </p>
+        </div>
       </div>
     </>
-  )
+  );
 }
 
 export default CartDrawer;
