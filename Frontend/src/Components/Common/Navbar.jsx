@@ -53,7 +53,7 @@ function Navbar() {
 
           {/* Icons Right */}
           <div className="flex items-center gap-5">
-            <SearchBar />
+            {/* <SearchBar /> */}
             <Heart size={25} className="cursor-pointer hover:text-green-600 transition" />
             <button onClick={handlerDrawer} className="relative">
               <ShoppingCart size={25} className="cursor-pointer hover:text-green-600 transition" />
