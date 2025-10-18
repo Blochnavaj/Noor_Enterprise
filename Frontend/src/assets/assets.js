@@ -7,6 +7,9 @@ import product2 from '../assets/product2.jpeg'
 import product3 from '../assets/product3.jpeg'
 import product4 from '../assets/product4.jpeg'
 import product5 from '../assets/product5.jpeg'
+import Hero_Banner from '../assets/Hero_Banner.jpg'
+import Veg_Collection_Section from '../assets/Veg_Collection_Section.png'
+import Fruit_Collection_Section from '../assets/Fruit_Collection_Section.jpg'
 
 
  const assets = {
@@ -18,7 +21,10 @@ import product5 from '../assets/product5.jpeg'
     product2,
     product3,
     product4,
-    product5
+    product5,
+    Hero_Banner,
+    Fruit_Collection_Section,
+    Veg_Collection_Section
  }
 
 

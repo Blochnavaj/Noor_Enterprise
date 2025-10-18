@@ -8,13 +8,9 @@ import CartDrawer from "../Layout/CartDrawer";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
-  // cart items function 
-   const [drawerOpen, setDrawerOpen] = useState(true);
-
-  const handlerDrawer = () => {
-    setDrawerOpen(!drawerOpen);
-  }
+  const handlerDrawer = () => setDrawerOpen(!drawerOpen);
 
   const menuLink = [
     { id: 1, name: "HOME", path: "#home" },
@@ -22,82 +18,70 @@ function Navbar() {
     { id: 3, name: "SERVICE", path: "#service" },
     { id: 4, name: "ABOUT US", path: "#about-us" },
     { id: 5, name: "FAQ", path: "#faq" },
-    { id: 6, name: "CONTACT US", path: "#contact-us" },
+    { id: 6, name: "CONTACT", path: "#contact-us" },
   ];
 
   return (
     <>
-      <nav className="w-full relative">
-        {/* Top Section: Logo */}
-        <div className=" hidden md:flex justify-center py-4">
+      <nav className="w-full bg-white shadow-sm   top-0 left-0 z-50">
+        {/* Desktop Navbar */}
+        <div className="hidden md:flex justify-between items-center px-10 py-4 max-w-7xl mx-auto">
+          {/* Logo Left */}
           <NavLink to="/">
-            <img src={assets.logo} alt="Logo" className="h-20 md:h-[7rem]" />
+            <motion.img
+              src={assets.logo}
+              alt="Logo"
+              className="h-16 cursor-pointer"
+              whileHover={{ scale: 1.05 }}
+            />
           </NavLink>
 
-           {/* Right Side Icons */}
-          <ul className="flex items-center gap-5 absolute top-16 right-9 ">
-            {/* <li className="cursor-pointer hover:text-gray-500 transition">
-              <Search size={30} />
-            </li> */}
-            <div className="overflow-hidden">
-
-            <SearchBar/>
-            </div>
-            <li className="cursor-pointer relative hover:text-gray-500 transition">
-              <Heart size={30} />
-              <span className="absolute bg-red-400 text-white rounded-full px-2 -top-2 py-0.5 text-xs -right-2 ">4</span>
-            </li>
-            <button onClick={handlerDrawer} className=" relative cursor-pointer hover:text-gray-500 transition">
-              <ShoppingCart size={30} />
-                            <span className="absolute bg-red-400 text-white rounded-full px-2 -top-2 py-0.5 text-xs -right-2 ">4</span>
-
-            </button>
-            <li className="cursor-pointer hover:text-gray-500 transition">
-              <User size={30} />
-            </li>
-          </ul>
-        </div>
-      
-
-        {/* Desktop NavLinks + Icons */}
-        <div className="hidden md:flex justify-center items-center gap-6 relative">
-          {/* NavLinks */}
+          {/* Center Links */}
           <ul className="flex gap-10">
             {menuLink.map((nav) => (
               <li key={nav.id} className="relative group">
                 <NavLink
                   to={nav.path}
-                  className="text-black text-md font-medium hover:text-gray-500 transition-colors duration-300"
+                  className="text-gray-800 font-medium hover:text-green-600 transition-all duration-300"
                 >
                   {nav.name}
                 </NavLink>
-                {/* underline animation */}
-                <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-black transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-green-500 transition-all duration-300 group-hover:w-full"></span>
               </li>
             ))}
           </ul>
 
-           </div>
-
-        {/* Mobile: Logo + Hamburger + Cart */}
-        <div className="flex md:hidden justify-between items-center px-6 py-2 overflow-hidden">
-          <button
-            onClick={() => setMenuOpen(true)}
-            className="text-black"
-          >
-            <Menu size={28} />
-          </button>
-          <NavLink to="/">
-            <img src={assets.logo} alt="Logo" className="h-16" />
-          </NavLink>
-         <button onClick={handlerDrawer} className="relative cursor-pointer">
-             <ShoppingCart size={28} className="text-black " />
-        <span className="absolute bg-red-400 text-white rounded-full px-2 -top-2 py-0.5 text-xs -right-2 ">4</span>
-
-         </button>
+          {/* Icons Right */}
+          <div className="flex items-center gap-5">
+            <SearchBar />
+            <Heart size={25} className="cursor-pointer hover:text-green-600 transition" />
+            <button onClick={handlerDrawer} className="relative">
+              <ShoppingCart size={25} className="cursor-pointer hover:text-green-600 transition" />
+              <span className="absolute -top-2 -right-2 bg-green-500 text-white text-xs px-1.5 rounded-full">
+                4
+              </span>
+            </button>
+            <User size={25} className="cursor-pointer hover:text-green-600 transition" />
+          </div>
         </div>
 
-        {/* Mobile Menu Overlay */}
+        {/* Mobile Navbar */}
+        <div className="flex md:hidden justify-between items-center px-6 py-3 shadow-sm bg-white">
+          <button onClick={() => setMenuOpen(true)}>
+            <Menu size={26} className="text-gray-800" />
+          </button>
+          <NavLink to="/">
+            <img src={assets.logo} alt="Logo" className="h-14" />
+          </NavLink>
+          <button onClick={handlerDrawer} className="relative">
+            <ShoppingCart size={26} className="text-gray-800" />
+            <span className="absolute -top-2 -right-2 bg-green-500 text-white text-xs px-1.5 rounded-full">
+              4
+            </span>
+          </button>
+        </div>
+
+        {/* Mobile Drawer */}
         <AnimatePresence>
           {menuOpen && (
             <motion.div
@@ -105,21 +89,21 @@ function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "-100%" }}
               transition={{ type: "spring", stiffness: 80 }}
-              className="fixed top-0 left-0 w-3/4 h-full bg-white shadow-lg z-50 p-6 flex flex-col"
+              className="fixed top-0 left-0 w-3/4 h-full bg-white shadow-2xl z-50 p-6 flex flex-col"
             >
               <button
                 onClick={() => setMenuOpen(false)}
                 className="self-end mb-6"
               >
-                <X size={28} />
+                <X size={26} />
               </button>
 
-              <ul className="flex flex-col gap-5">
+              <ul className="flex flex-col gap-6">
                 {menuLink.map((nav) => (
                   <li key={nav.id}>
                     <NavLink
                       to={nav.path}
-                      className="text-lg text-black hover:text-gray-500"
+                      className="text-lg text-gray-800 hover:text-green-600"
                       onClick={() => setMenuOpen(false)}
                     >
                       {nav.name}
@@ -131,7 +115,7 @@ function Navbar() {
           )}
         </AnimatePresence>
 
-        <CartDrawer  drawerOpen={drawerOpen} handlerDrawer={handlerDrawer}/>
+        <CartDrawer drawerOpen={drawerOpen} handlerDrawer={handlerDrawer} />
       </nav>
     </>
   );
