@@ -10,7 +10,8 @@ import product5 from '../assets/product5.jpeg'
 import Hero_Banner from '../assets/Hero_Banner.jpg'
 import Veg_Collection_Section from '../assets/Veg_Collection_Section.png'
 import Fruit_Collection_Section from '../assets/Fruit_Collection_Section.jpg'
-
+import Featured_Collection from '../assets/Featured_Collection.jpg'
+import Login_Image from '../assets/Login_Image.jpg'
 
  const assets = {
     logo,
@@ -24,7 +25,9 @@ import Fruit_Collection_Section from '../assets/Fruit_Collection_Section.jpg'
     product5,
     Hero_Banner,
     Fruit_Collection_Section,
-    Veg_Collection_Section
+    Veg_Collection_Section,
+    Featured_Collection,
+    Login_Image
  }
 
 

@@ -1,5 +1,5 @@
  import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import assets from "../../assets/assets";
 import { Search, User, Heart, ShoppingCart, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -13,7 +13,7 @@ function Navbar() {
   const handlerDrawer = () => setDrawerOpen(!drawerOpen);
 
   const menuLink = [
-    { id: 1, name: "HOME", path: "#home" },
+    { id: 1, name: "HOME", path: "/" },
     { id: 2, name: "SHOP", path: "#shop" },
     { id: 3, name: "SERVICE", path: "#service" },
     { id: 4, name: "ABOUT US", path: "#about-us" },
@@ -61,7 +61,9 @@ function Navbar() {
                 4
               </span>
             </button>
+            <NavLink to='/login'>
             <User size={25} className="cursor-pointer hover:text-green-600 transition" />
+            </NavLink>
           </div>
         </div>
 

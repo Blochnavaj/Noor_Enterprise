@@ -1,6 +1,8 @@
  import React, { useState } from "react";
 import { CheckCircle, Leaf, Droplet, Heart, Shield, ShoppingBag } from "lucide-react";
 import assets from "../../assets/assets";
+import { toast } from "sonner";
+import NewArrivalSection from "./NewArrivalSection";
 
 function ProductDetails() {
   const productVariants = [
@@ -29,13 +31,35 @@ function ProductDetails() {
 
   const [selectedVariant, setSelectedVariant] = useState(productVariants[0]);
   const [mainImage, setMainImage] = useState(selectedVariant.images[0]);
+  const [isDisabled, setIsDisabled] = useState(false);
 
   const handleVariantChange = (variant) => {
     setSelectedVariant(variant);
     setMainImage(variant.images[0]);
   };
 
+
+  const handleAddToCart = () => {
+    if(!selectedVariant) {
+      toast.error("Please select a product size first!" , {
+         duration : 1000
+      });
+      return;
+    }
+    toast.success("Product add to Cart " , {
+      duration : 1000
+    })
+
+    setIsDisabled(true);
+
+    setTimeout(() =>  {
+     setIsDisabled(false)
+  } , 1000)
+  }
+
+
   return (
+    <>
     <div className="max-w-6xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-2 gap-10">
       {/* Left Side: Product Images */}
       <div className="flex flex-col md:flex-row gap-4 items-start">
@@ -125,12 +149,18 @@ function ProductDetails() {
         </div>
 
         {/* Add to Cart Button */}
-        <button className="mt-6 flex items-center justify-center gap-2 w-full md:w-1/2 bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-2xl shadow-md transition-all">
+        <button onClick={handleAddToCart}  disabled={isDisabled} className={`mt-6 flex items-center justify-center gap-2 w-full md:w-1/2 bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-2xl shadow-md transition-all ${isDisabled ? "bg-gray-400 cursor-not-allowed" : "bg-green-600 hover:bg-green-700 text-white"}`}>
           <ShoppingBag size={18} />
-          Add to Cart
+        {isDisabled ? "Added to cart..." : "Add to cart"}
         </button>
       </div>
+
+        
     </div>
+
+   
+
+      </>
   );
 }
 
