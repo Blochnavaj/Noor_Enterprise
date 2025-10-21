@@ -1,6 +1,6 @@
  import React from "react";
 import { Facebook, Instagram, Linkedin, Youtube, Mail, ArrowRight } from "lucide-react";
-import assets from "../../assets/assets";
+import {assets} from "../../assets/assets.js";
 ; // 👈 Replace with your actual logo path
 
 function Footer() {

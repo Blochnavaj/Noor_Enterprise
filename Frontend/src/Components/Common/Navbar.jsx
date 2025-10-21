@@ -1,10 +1,9 @@
  import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import assets from "../../assets/assets";
-import { Search, User, Heart, ShoppingCart, Menu, X } from "lucide-react";
+import {assets} from "../../assets/assets.js";
+import {User,ShoppingCart, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import SearchBar from "./SearchBar";
-import CartDrawer from "../Layout/CartDrawer";
+ import CartDrawer from "../Layout/CartDrawer";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -14,7 +13,7 @@ function Navbar() {
 
   const menuLink = [
     { id: 1, name: "HOME", path: "/" },
-    { id: 2, name: "SHOP", path: "#shop" },
+    { id: 2, name: "SHOP", path: "shop" },
     { id: 3, name: "SERVICE", path: "#service" },
     { id: 4, name: "ABOUT US", path: "#about-us" },
     { id: 5, name: "FAQ", path: "#faq" },
@@ -53,9 +52,8 @@ function Navbar() {
 
           {/* Icons Right */}
           <div className="flex items-center gap-5">
-            {/* <SearchBar /> */}
-            <Heart size={25} className="cursor-pointer hover:text-green-600 transition" />
-            <button onClick={handlerDrawer} className="relative">
+         
+             <button onClick={handlerDrawer} className="relative">
               <ShoppingCart size={25} className="cursor-pointer hover:text-green-600 transition" />
               <span className="absolute -top-2 -right-2 bg-green-500 text-white text-xs px-1.5 rounded-full">
                 4

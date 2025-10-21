@@ -1,5 +1,5 @@
  import React, { useState } from 'react';
-import assets from '../assets/assets';  
+import {assets} from '../assets/assets.js';  
 
 function Login() {
   const [isLogin, setIsLogin] = useState(true);

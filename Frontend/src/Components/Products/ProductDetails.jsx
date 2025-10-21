@@ -1,6 +1,6 @@
  import React, { useState } from "react";
 import { CheckCircle, Leaf, Droplet, Heart, Shield, ShoppingBag } from "lucide-react";
-import assets from "../../assets/assets";
+import {assets} from "../../assets/assets.js";
 import { toast } from "sonner";
 import NewArrivalSection from "./NewArrivalSection";
 
