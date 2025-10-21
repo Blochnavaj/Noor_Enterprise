@@ -37,7 +37,7 @@ function ProductGrid({ products }) {
             <Link to={`/product/${product.id}`}>
               <div className="flex justify-center items-center">
                 <img
-                  src={product.image}
+                  src={product.images[0]}
                   alt={product.name}
                   className="w-full h-[450px] object-contain transition-transform duration-500 group-hover:scale-105"
                 />

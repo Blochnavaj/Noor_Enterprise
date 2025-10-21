@@ -13,13 +13,6 @@ function Home() {
  
     <NewArrivalSection/>
 
-
-{/* Best seller */}
-    <div className=''>
-      <h2 className='text-center mx-auto text-3xl  text-black font-bold tracking-tighter'>Best Seller</h2>
-      <ProductDetails/>
-      </div>    
-
       <FeatutedCollection/>
  
     </>

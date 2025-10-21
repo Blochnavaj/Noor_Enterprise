@@ -18,7 +18,7 @@ const products = [
   {
     id: 1,
     name: "Vitamin C Face Wash",
-    image: product1,
+    images: [product1, product2, product3], // ✅ multiple images
     rating: 4.5,
     packs: [
       { size: "100g", mrp: 499, price: 349 },
@@ -29,7 +29,7 @@ const products = [
   {
     id: 2,
     name: "Niacinamide Face Wash",
-    image: product2,
+    images: [product1, product2, product3], // ✅ array
     rating: 4.2,
     packs: [
       { size: "100g", mrp: 399, price: 299 },
@@ -40,7 +40,7 @@ const products = [
   {
     id: 3,
     name: "Hyaluronic Acid Gel",
-    image: product3,
+    images: [product3],
     rating: 4.8,
     packs: [
       { size: "100g", mrp: 599, price: 449 },
@@ -51,7 +51,7 @@ const products = [
   {
     id: 4,
     name: "Retinol Night Cream",
-    image: product4,
+    images: [product4],
     rating: 4.6,
     packs: [
       { size: "100g", mrp: 699, price: 499 },
@@ -62,7 +62,7 @@ const products = [
   {
     id: 5,
     name: "Charcoal Detox Face Wash",
-    image: product5,
+    images: [product5],
     rating: 4.3,
     packs: [
       { size: "100g", mrp: 449, price: 299 },
@@ -71,6 +71,7 @@ const products = [
     ],
   },
 ];
+
 
 // ✅ All assets grouped together
 const assets = {

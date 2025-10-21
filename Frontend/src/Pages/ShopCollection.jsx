@@ -1,10 +1,9 @@
  import React, { useState } from "react";
 import ProductGrid from "../Components/Products/ProductGrid.jsx";
-import {products} from "../assets/assets.js";
+import { products } from "../assets/assets.js";
 
 function ShopCollection() {
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const [priceRange, setPriceRange] = useState([0, 2000]);
   const [sortBy, setSortBy] = useState("");
 
   // Filter by category
@@ -13,14 +12,8 @@ function ShopCollection() {
       ? products
       : products.filter((p) => p.category === selectedCategory);
 
-  // Filter by price range (min price of first pack)
-  const filteredProducts = filteredByCategory.filter((p) => {
-    const minPrice = Math.min(...p.packs.map((pack) => pack.price));
-    return minPrice >= priceRange[0] && minPrice <= priceRange[1];
-  });
-
   // Sort products
-  const sortedProducts = [...filteredProducts].sort((a, b) => {
+  const sortedProducts = [...filteredByCategory].sort((a, b) => {
     const minA = Math.min(...a.packs.map((pack) => pack.price));
     const minB = Math.min(...b.packs.map((pack) => pack.price));
     switch (sortBy) {
@@ -40,50 +33,34 @@ function ShopCollection() {
   return (
     <div className="flex flex-col md:flex-row min-h-screen bg-gray-50">
       {/* Left Sidebar */}
-      <div className="w-full md:w-1/4 bg-white shadow-md p-6 space-y-8">
+      <div className="w-full md:w-1/4 bg-white shadow-md p-6 space-y-10 sticky top-0 h-screen">
         <div>
-          <h2 className="text-lg font-semibold mb-4">Category</h2>
+          <h2 className="text-xl font-semibold mb-6">Category</h2>
           {["All", "Vegetable", "Fruit"].map((cat) => (
-            <label key={cat} className="flex items-center space-x-2 cursor-pointer">
-              <input
-                type="radio"
-                name="category"
-                value={cat}
-                checked={selectedCategory === cat}
-                onChange={(e) => setSelectedCategory(e.target.value)}
-              />
-              <span className="text-gray-700">{cat}</span>
-            </label>
+            <button
+              key={cat}
+              onClick={() => setSelectedCategory(cat)}
+              className={`block w-full text-left px-4 py-2 rounded-lg mb-2 transition-all duration-200 font-medium ${
+                selectedCategory === cat
+                  ? "bg-green-600 text-white"
+                  : "bg-gray-100 text-gray-700 hover:bg-green-100"
+              }`}
+            >
+              {cat}
+            </button>
           ))}
-        </div>
-
-        <div>
-          <h2 className="text-lg font-semibold mb-4">Price Range</h2>
-          <div className="flex items-center space-x-2">
-            <input
-              type="number"
-              className="w-20 border rounded p-1"
-              value={priceRange[0]}
-              onChange={(e) => setPriceRange([Number(e.target.value), priceRange[1]])}
-            />
-            <span>—</span>
-            <input
-              type="number"
-              className="w-20 border rounded p-1"
-              value={priceRange[1]}
-              onChange={(e) => setPriceRange([priceRange[0], Number(e.target.value)])}
-            />
-          </div>
         </div>
       </div>
 
       {/* Right Section */}
       <div className="flex-1 p-6">
         {/* Top Bar */}
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-xl font-semibold text-gray-800">Shop Collection</h2>
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8">
+          <h2 className="text-3xl font-bold text-gray-800 mb-4 sm:mb-0">
+            Shop Collection
+          </h2>
           <select
-            className="border p-2 rounded-md"
+            className="border p-2 rounded-md shadow-sm focus:ring-2 focus:ring-green-500"
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value)}
           >
