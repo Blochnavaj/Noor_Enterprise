@@ -32,7 +32,7 @@ function ProductGrid({ products }) {
         return (
           <div
             key={product.id}
-            className="rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group relative"
+            className="rounded-2xl shadow-xl   transition-all duration-300 overflow-hidden group relative"
           >
             <Link to={`/product/${product.id}`}>
               <div className="flex justify-center items-center">

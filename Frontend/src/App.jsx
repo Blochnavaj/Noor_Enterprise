@@ -7,6 +7,8 @@ import Login from './Pages/Login';
 import Profile from './Pages/Profile';
 import ShopCollection from './Pages/ShopCollection';
 import ProductDetails from './Components/Products/ProductDetails';
+import CheckOut from './Components/Cart/CheckOut';
+import CheckoutConfirmation from './Components/Cart/CheckoutConfirmation';
 
  function App() {
    return (
@@ -18,6 +20,8 @@ import ProductDetails from './Components/Products/ProductDetails';
       <Route path='profile' element={<Profile/>} />
       <Route path='shop' element={<ShopCollection/>} />
       <Route path='product/:id' element={<ProductDetails/>} />
+      <Route path='checkout' element={<CheckOut/>} />
+      <Route path='checkout-confirmation' element={<CheckoutConfirmation/>} />
         {/* user Layout */}
         <Route index element={<Home/>} />
       </Route>

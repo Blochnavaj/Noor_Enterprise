@@ -25,7 +25,6 @@ function Footer() {
         <div>
           <h3 className="font-semibold text-lg mb-4 uppercase tracking-wide">Policies</h3>
           <ul className="space-y-2 text-gray-300 text-sm">
-            <li className="hover:text-white cursor-pointer">Search</li>
             <li className="hover:text-white cursor-pointer">Privacy Policy</li>
             <li className="hover:text-white cursor-pointer">Refund Policy</li>
             <li className="hover:text-white cursor-pointer">Return Policy</li>

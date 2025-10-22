@@ -1,8 +1,15 @@
  import React from "react";
 import { X } from "lucide-react";
 import CartContext from "../Cart/CartContext";
+import { Navigate, useNavigate } from "react-router-dom";
 
 function CartDrawer({ handlerDrawer, drawerOpen }) {
+
+  const navigate = useNavigate(); 
+  const handleCheckOut = () => {
+ navigate("/checkout");
+ handlerDrawer(false);
+  }
   return (
     <>
       {/* Background overlay */}
@@ -37,7 +44,7 @@ function CartDrawer({ handlerDrawer, drawerOpen }) {
 
         {/* Checkout Section */}
         <div className="border-t border-gray-200 bg-white p-4">
-          <button className="bg-black w-full py-3 text-white rounded-lg font-medium hover:bg-gray-800 transition-all">
+          <button onClick={handleCheckOut} className="bg-black w-full py-3 text-white rounded-lg font-medium hover:bg-gray-800 transition-all">
             Proceed to Checkout
           </button>
           <p className="text-xs text-gray-500 mt-2 text-center">

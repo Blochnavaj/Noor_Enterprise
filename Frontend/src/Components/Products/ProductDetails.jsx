@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { CheckCircle, Leaf, Droplet, Heart, Shield, ShoppingBag } from "lucide-react";
 import { products } from "../../assets/assets.js";
 import { toast } from "sonner";
+import ProductGrid from "./ProductGrid.jsx";
 
 function ProductDetails() {
   const { id } = useParams(); // URL se product id
@@ -10,6 +11,8 @@ function ProductDetails() {
 
   // Product find karo
   const product = products.find((p) => p.id === productId);
+
+  const NewArrive = products.slice(0,5);
 
   // Agar product na mile
   if (!product) return <div className="text-center py-10">Product not found!</div>;
@@ -19,7 +22,7 @@ function ProductDetails() {
   const [mainImage, setMainImage] = useState(product.images[0]);
   const [isDisabled, setIsDisabled] = useState(false);
 
-  // Scroll to top aur reset variant jab product change ho
+  // Scroll to top aur reset variant 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
     setSelectedVariant(product.packs[0]);
@@ -41,6 +44,7 @@ function ProductDetails() {
   };
 
   return (
+    <>
     <div className="max-w-6xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-2 gap-10">
       {/* Left Side: Images */}
       <div className="flex flex-col md:flex-row gap-4 items-start">
@@ -134,6 +138,17 @@ function ProductDetails() {
         </button>
       </div>
     </div>
+    
+    {/* you may also like this product */}
+
+    <div className="p-8">
+      <div className="text-center mx-auto">
+        <h1 className="font-black text-2xl md:mb-5 ">You May aslo Like</h1>
+      </div>
+
+        <ProductGrid products={NewArrive}/>
+    </div>
+    </>
   );
 }
 

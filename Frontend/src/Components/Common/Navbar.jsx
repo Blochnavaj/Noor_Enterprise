@@ -14,7 +14,7 @@ function Navbar() {
   const menuLink = [
     { id: 1, name: "HOME", path: "/" },
     { id: 2, name: "SHOP", path: "shop" },
-    { id: 3, name: "SERVICE", path: "#service" },
+    // { id: 3, name: "SERVICE", path: "#service" },
     { id: 4, name: "ABOUT US", path: "#about-us" },
     { id: 5, name: "FAQ", path: "#faq" },
     { id: 6, name: "CONTACT", path: "#contact-us" },

@@ -1,8 +1,10 @@
  import React from "react";
 import { motion } from "framer-motion";
 import {assets} from "../../assets/assets.js";
+import { useNavigate } from "react-router-dom";
  
 function Hero() {
+  const navigate = useNavigate();
   return (
     <section
       className="relative w-full h-[85vh] flex items-center justify-center bg-cover bg-center text-white "
@@ -30,6 +32,7 @@ function Hero() {
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          onClick={() => navigate('shop')}
           className="bg-yellow-400 text-black font-semibold px-6 py-3 rounded-full shadow-md hover:bg-yellow-300 transition"
         >
           Shop Now
