@@ -37,13 +37,17 @@ function CheckOut() {
     ],
   };
 
-  // Total calculations
+  // ✅ Total calculations
   const totalMRP = cart.products.reduce((acc, p) => acc + p.mrp * p.quantity, 0);
   const totalPrice = cart.products.reduce(
     (acc, p) => acc + p.price * p.quantity,
     0
   );
   const totalDiscount = totalMRP - totalPrice;
+
+  // ✅ Delivery charge logic
+  const deliveryCharge = totalPrice < 299 ? 49 : 0;
+  const finalAmount = totalPrice + deliveryCharge;
 
   const [shippingAddress, setShippingAddress] = useState({
     firstname: "",
@@ -67,14 +71,13 @@ function CheckOut() {
     e.preventDefault();
 
     const options = {
-      key: "rzp_test_RWOJC3K2pBnRE8", // 👉 Replace this with your Razorpay Key ID
-      amount: totalPrice * 100, // amount in paisa
+      key: "rzp_test_RWOJC3K2pBnRE8",
+      amount: finalAmount * 100, // ✅ Use finalAmount including delivery
       currency: "INR",
       name: "noor enterprise",
       description: "Order Payment",
-      image: assets.logo, // optional
+      image: assets.logo,
       handler: function (response) {
-        // alert("✅ Payment successful! Payment ID: " + response.razorpay_payment_id);
         navigate("/checkout-confirmation");
       },
       prefill: {
@@ -106,7 +109,7 @@ function CheckOut() {
             <Input label="Address" name="address" value={shippingAddress.address} onChange={handleChange} />
             <Input label="City" name="city" value={shippingAddress.city} onChange={handleChange} />
             <Input label="Postal Code" name="postalCode" value={shippingAddress.postalCode} onChange={handleChange} />
-            <Input label="Phone" name="phone" value={shippingAddress.phone} onChange={handleChange}   />
+            <Input label="Phone" name="phone" value={shippingAddress.phone} onChange={handleChange} />
             <Input label="Country" name="country" value={shippingAddress.country} onChange={handleChange} />
 
             <button
@@ -158,6 +161,7 @@ function CheckOut() {
             })}
           </div>
 
+          {/* ✅ Summary with delivery charge */}
           <div className="mt-6 border-t pt-4 space-y-2 text-gray-700">
             <div className="flex justify-between text-sm">
               <span>Total MRP:</span>
@@ -167,9 +171,17 @@ function CheckOut() {
               <span>Total Discount:</span>
               <span>-₹{totalDiscount}</span>
             </div>
+            <div className="flex justify-between text-sm">
+              <span>Delivery Charges:</span>
+              {deliveryCharge === 0 ? (
+                <span className="text-green-600 font-medium">FREE</span>
+              ) : (
+                <span>₹{deliveryCharge}</span>
+              )}
+            </div>
             <div className="flex justify-between text-lg font-semibold text-gray-800 border-t pt-3">
               <span>Payable Amount:</span>
-              <span>₹{totalPrice}</span>
+              <span>₹{finalAmount}</span>
             </div>
           </div>
         </div>

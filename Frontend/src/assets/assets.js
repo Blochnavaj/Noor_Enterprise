@@ -12,6 +12,7 @@ import Veg_Collection_Section from '../assets/Veg_Collection_Section.png';
 import Fruit_Collection_Section from '../assets/Fruit_Collection_Section.jpg';
 import Featured_Collection from '../assets/Featured_Collection.jpg';
 import Login_Image from '../assets/Login_Image.jpg';
+import photo from '../assets/Ower_image.jpg'
 
 // ✅ Product data list
 const products = [
@@ -75,6 +76,7 @@ const products = [
 
 // ✅ All assets grouped together
 const assets = {
+  photo,
   logo,
   slider_1,
   slider_2,
