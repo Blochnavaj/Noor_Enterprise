@@ -14,11 +14,13 @@ import MyOrders from './Pages/MyOrders';
 import AboutUsPage from './Pages/AboutUsPage';
 import FAQPage from './Pages/FAQPage';
 import ContactPage from './Pages/ContactPage';
+import RouteLoader from './Components/Common/RouteLoader';
 
 function App() {
   return (
     <>
       <Toaster position='top-right' reverseOrder={false} />
+      <RouteLoader>
       <Routes>
 
         <Route path='/' element={<UserLayout />}>
@@ -42,6 +44,7 @@ function App() {
           {/* Admin Layout */}
         </Route>
       </Routes>
+      </RouteLoader>
     </>
   )
 }

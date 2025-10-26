@@ -53,13 +53,13 @@ function MyOrders() {
   const getStatusBadge = (status) => {
     if (status === "Online Paid") {
       return (
-        <span className="flex items-center gap-1 text-green-600 font-semibold bg-green-100 px-3 py-1 rounded-full">
+        <span className="flex items-center gap-1 text-green-600 font-semibold bg-green-100 px-4 rounded-full">
           <CheckCircle size={16} /> Paid
         </span>
       );
     } else if (status === "Pending") {
       return (
-        <span className="flex items-center gap-1 text-yellow-600 font-semibold bg-yellow-100 px-3 py-1 rounded-full">
+        <span className="flex items-center gap-1 text-yellow-600 font-semibold bg-yellow-100 px-4  rounded-full">
           <Clock size={16} /> Pending
         </span>
       );
@@ -108,7 +108,7 @@ function MyOrders() {
               </div>
             </div>
 
-            <div className="flex flex-col items-center md:items-end gap-2 mt-4 md:mt-0">
+            <div className="flex gap-3 items-center md:items-end  mt-4 md:mt-0">
               <div className="flex items-center gap-1 text-xl font-semibold text-green-700">
                 <IndianRupee size={18} /> {order.price}
               </div>
