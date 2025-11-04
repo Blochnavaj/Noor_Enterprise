@@ -1,5 +1,5 @@
  import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, Navigate, NavLink, useNavigate } from "react-router-dom";
 import {assets} from "../../assets/assets.js";
 import {User,ShoppingCart, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -9,6 +9,7 @@ function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
 
+  const navigate = useNavigate();
   const handlerDrawer = () => setDrawerOpen(!drawerOpen);
 
   const menuLink = [
@@ -52,7 +53,9 @@ function Navbar() {
 
           {/* Icons Right */}
           <div className="flex items-center gap-5">
-         
+              <NavLink to={'/admin'}>
+                <button className="bg-black text-white px-3  text-md rounded-md">Admin</button>
+              </NavLink>
              <button onClick={handlerDrawer} className="relative">
               <ShoppingCart size={25} className="cursor-pointer hover:text-green-600 transition" />
               <span className="absolute -top-2 -right-2 bg-green-500 text-white text-xs px-1.5 rounded-full">

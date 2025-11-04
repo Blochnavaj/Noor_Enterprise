@@ -14,13 +14,17 @@ import MyOrders from './Pages/MyOrders';
 import AboutUsPage from './Pages/AboutUsPage';
 import FAQPage from './Pages/FAQPage';
 import ContactPage from './Pages/ContactPage';
-import RouteLoader from './Components/Common/RouteLoader';
+// import RouteLoader from './Components/Common/RouteLoader';
+import AdminLayout from './Components/Admin/AdminLayout';
+import AddProduct from './Components/Admin/AddProduct';
+import OrderPage from './Components/Admin/OrderPage';
+import UserPage from './Components/Admin/UserPage';
 
 function App() {
   return (
     <>
       <Toaster position='top-right' reverseOrder={false} />
-      <RouteLoader>
+      {/* <RouteLoader> */}
       <Routes>
 
         <Route path='/' element={<UserLayout />}>
@@ -40,11 +44,14 @@ function App() {
           <Route index element={<Home />} />
         </Route>
 
-        <Route>
-          {/* Admin Layout */}
+        <Route path='/admin' element={<AdminLayout/>}>
+         {/* Admin Layout */} 
+         <Route path='add-product' element={<AddProduct/>} />
+         <Route path='order' element={<OrderPage/>} />
+         <Route path='add-users' element={<UserPage/>} />
         </Route>
       </Routes>
-      </RouteLoader>
+      {/* </RouteLoader> */}
     </>
   )
 }
