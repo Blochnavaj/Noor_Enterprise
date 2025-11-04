@@ -2,7 +2,7 @@ import logo from '../assets/logo.png';
 import slider_1 from '../assets/slider_1.jpg';
 import slider_2 from '../assets/slider_2.webp';
 import slider_3 from '../assets/slider_3.webp';
-import Amla_power from '../assets/Amla_power.jpeg'
+import Amla_Power from '../assets/Amla_Power.jpeg'
 import Banana_power from '../assets/Banana_power.jpeg'
 import Carrot_power from '../assets/Carrot_power.jpeg'
 import Green_chili_power from '../assets/Green_chili_power.jpeg'
@@ -26,7 +26,7 @@ const products = [
   {
     id: 1,
     name: "Oragnic Amla Power ",
-    images: [Amla_power, Amla_power], // ✅ multiple images
+    images: [Amla_Power, Amla_Power], // ✅ multiple images
     rating: 4.5,
     packs: [
       { size: "100g", mrp: 499, price: 349 },
@@ -145,7 +145,7 @@ const products = [
     ],
   },
   {
-    id: 11,
+    id: 12,
     name: "Banana Power ",
     images: [Banana_power, Banana_power],
     rating: 4.3,
@@ -165,7 +165,7 @@ const assets = {
   slider_1,
   slider_2,
   slider_3,
-  Mango_power, Banana_power, Red_chili_power, Green_chili_power, Palak_power, Carrot_power, Moringa_power, Orange_power, Onion_power, Papaya_power, tomato_power,
+  Mango_power, Amla_Power, Banana_power, Red_chili_power, Green_chili_power, Palak_power, Carrot_power, Moringa_power, Orange_power, Onion_power, Papaya_power, tomato_power,
   Hero_Banner,
   Fruit_Collection_Section,
   Veg_Collection_Section,
