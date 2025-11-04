@@ -9,7 +9,7 @@ import Green_chili_power from '../assets/Green_chili_power.jpeg'
 import Mango_power from '../assets/Mango_power.jpeg'
 import Moringa_power from '../assets/Moringa_power.jpeg'
 import Onion_power from '../assets/Onion_power.jpeg'
-import Ornage_power from '../assets/Ornage_power.jpeg'
+import Orange_power from '../assets/Orange_power.jpeg'
 import Palak_power from '../assets/Palak_power.jpeg'
 import Papaya_power from '../assets/Papaya_power.jpeg'
 import Red_chili_power from '../assets/Red_chili_power.jpeg'
@@ -92,7 +92,7 @@ const products = [
   {
     id: 7,
     name: "Orange Power ",
-    images: [Ornage_power, Ornage_power],
+    images: [Orange_power,Orange_power],
     rating: 4.3,
     packs: [
       { size: "100g", mrp: 449, price: 299 },
@@ -165,7 +165,7 @@ const assets = {
   slider_1,
   slider_2,
   slider_3,
-  Mango_power, Banana_power, Red_chili_power, Green_chili_power, Palak_power, Carrot_power, Moringa_power, Ornage_power, Onion_power, Papaya_power, tomato_power,
+  Mango_power, Banana_power, Red_chili_power, Green_chili_power, Palak_power, Carrot_power, Moringa_power, Orange_power, Onion_power, Papaya_power, tomato_power,
   Hero_Banner,
   Fruit_Collection_Section,
   Veg_Collection_Section,
