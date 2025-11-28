@@ -18,6 +18,7 @@ function AdminSidebar() {
   const navItems = [
     { name: "Dashboard", icon: <LayoutDashboard size={20} />, path: "/admin" },
     { name: "Add Product", icon: <Package size={20} />, path: "/admin/add-product" },
+    { name: "Product Management", icon: <Package size={20} />, path: "/admin/product-management" },
     { name: "Orders", icon: <ShoppingCart size={20} />, path: "/admin/order" },
     { name: "Users", icon: <Users size={20} />, path: "/admin/add-users" },
     { name: "Shop", icon: <Store size={20} />, path: "/" },

@@ -20,6 +20,7 @@ import AddProduct from './Components/Admin/AddProduct';
 import OrderPage from './Components/Admin/OrderPage';
 import UserPage from './Components/Admin/UserPage';
 import AdminDashboardPage from './Pages/AdminDashboardPage';
+import ProductManagement from './Components/Admin/ProductManagement'
 
 function App() {
   return (
@@ -51,6 +52,7 @@ function App() {
          <Route path='add-product' element={<AddProduct/>} />
          <Route path='order' element={<OrderPage/>} />
          <Route path='add-users' element={<UserPage/>} />
+         <Route path='product-management' element={<ProductManagement/>} />
         </Route>
       </Routes>
       {/* </RouteLoader> */}
