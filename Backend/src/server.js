@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors'
 import dotenv from 'dotenv'
 import connectDB from './Config/db.js';
+import UserRoute from './Router/UserRoute.js';
 
 dotenv.config(); 
 
@@ -19,6 +20,9 @@ app.use(cors());
 const port = process.env.PORT || 3000;
 
 
+
+//api end-point 
+app.use("/api/auth", UserRoute);
 
 
 //server 
