@@ -3,6 +3,7 @@ import cors from 'cors'
 import dotenv from 'dotenv'
 import connectDB from './Config/db.js';
 import UserRoute from './Router/UserRoute.js';
+import router from './Router/productRoute.js';
 
 dotenv.config(); 
 
@@ -23,6 +24,7 @@ const port = process.env.PORT || 3000;
 
 //api end-point 
 app.use("/api/auth", UserRoute);
+app.use('/api/product', router);
 
 
 //server 
